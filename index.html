@@ -885,54 +885,14 @@ nav > .logo-wrap, nav > ul { flex-shrink:0; }
   <div class="donate-inner">
     <div>
       <div class="section-label">Give Today</div>
-      <h2 class="section-title">Your gift shows up at the hospital door</h2>
-      <p style="font-size:1.02rem;color:var(--muted);line-height:1.8;margin-bottom:28px;">Every dollar you donate goes directly toward support packages and travel assistance for families navigating a pediatric cancer diagnosis. This is tangible, immediate help — not a fund that sits somewhere. A bag gets packed and delivered.</p>
-      <div class="donate-amounts">
-        <div class="amount-btn active" onclick="selectAmt(this)">
-          <span class="amt">$25</span><span class="imp">Helps stock one package</span>
-        </div>
-        <div class="amount-btn" onclick="selectAmt(this)">
-          <span class="amt">$50</span><span class="imp">Covers one full bag</span>
-        </div>
-        <div class="amount-btn" onclick="selectAmt(this)">
-          <span class="amt">$100</span><span class="imp">Two families supported</span>
-        </div>
-        <div class="amount-btn" onclick="selectAmt(this)">
-          <span class="amt">$250</span><span class="imp">Travel aid for one family</span>
-        </div>
-      </div>
-      <input type="number" class="donate-input" placeholder="Or enter a custom amount ($)">
-      <p class="donate-note">100% of donations go directly toward the mission — support packages and family travel assistance.</p>
-      <a href="/cdn-cgi/l/email-protection#245e515e51575e4b4a41644349454d480a474b491b5751464e41475019604b4a45504d4b4a" class="btn-primary">
-        Donate Now &nbsp;→
+      <h2 class="section-title">Your gift shows up <em>at the hospital door</em></h2>
+      <p style="font-size:1.02rem;color:var(--muted);line-height:1.82;margin-bottom:28px;">Every dollar you donate goes directly toward support packages and travel assistance for families navigating a pediatric cancer diagnosis. This is tangible, immediate help — a bag gets packed and delivered to a family in need.</p>
+      <p style="font-size:0.95rem;color:var(--muted);line-height:1.75;margin-bottom:32px;">Zuzu's Zone accepts donations securely through PayPal. You don't need a PayPal account — you can donate with any credit or debit card.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=SZJJNJ795GEPQ" target="_blank" class="btn-primary" style="font-size:1.05rem;padding:18px 44px;display:inline-block;text-decoration:none;">
+        ❤️ &nbsp;Donate Now
       </a>
     </div>
-    <div class="donate-card">
-      <h3>Other Ways to Give</h3>
-      <p>Choose the platform that works best for you.</p>
-      <div class="donate-methods">
-        <a href="#" class="method-link">
-          <span class="method-icon">💙</span>
-          <span class="method-name">PayPal</span>
-          <span class="method-sub">Coming soon</span>
-        </a>
-        <a href="#" class="method-link">
-          <span class="method-icon">💚</span>
-          <span class="method-name">Venmo</span>
-          <span class="method-sub">Coming soon</span>
-        </a>
-        <a href="#" class="method-link">
-          <span class="method-icon">💛</span>
-          <span class="method-name">Cash App</span>
-          <span class="method-sub">Coming soon</span>
-        </a>
-        <a href="/cdn-cgi/l/email-protection#324847484741485d5c5772555f535b5e1c515d5f" class="method-link">
-          <span class="method-icon">✉️</span>
-          <span class="method-name">Email Us</span>
-          <span class="method-sub"><span class="__cf_email__" data-cfemail="3a404f404f494055545f7a5d575b535614595557">[email&#160;protected]</span></span>
-        </a>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -963,11 +923,12 @@ nav > .logo-wrap, nav > ul { flex-shrink:0; }
     </div>
   </div>
   <div class="raffle-cta">
-    <p style="font-size:0.95rem;color:var(--muted);line-height:1.7;">
-      Raffle tickets are available for purchase online. Drawing date to be announced.<br>
-      <a href="#" style="color:var(--coral);font-weight:600;text-decoration:underline;text-underline-offset:3px;">Purchase tickets here</a>
-      
-    </p>
+    <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:8px;">
+      <a href="#" class="btn-primary" style="font-size:1.05rem;padding:18px 48px;text-decoration:none;">
+        🎟️ &nbsp;Buy Raffle Tickets
+      </a>
+      <span style="font-size:0.85rem;color:var(--muted);">Drawing date to be announced</span>
+    </div>
   </div>
   <p class="raffle-legal">Raffle conducted by Zuzu's Zone. All proceeds benefit pediatric cancer family support packages and travel assistance.</p>
 </section>
@@ -1015,7 +976,7 @@ nav > .logo-wrap, nav > ul { flex-shrink:0; }
         </div>
       </div>
     </div>
-    <form class="contact-form" onsubmit="return false;">
+    <form class="contact-form" action="mailto:zuzuszone@gmail.com" method="POST" enctype="text/plain">
       <div class="form-row">
         <div class="form-group">
           <label>First Name</label>
