@@ -57,7 +57,7 @@ nav {
   background:var(--pink-bg);
   display:grid; grid-template-columns:1fr 1fr;
   align-items:center;
-  padding:120px 72px 80px;
+  padding:120px 6% 80px;
   position:relative; overflow:hidden;
 }
 .hero::before {
@@ -153,7 +153,7 @@ nav {
 }
 
 /* ── SECTIONS ── */
-section { padding:96px 72px; }
+section { padding:96px 6%; max-width:1800px; margin-left:auto; margin-right:auto; }
 .section-label {
   font-size:0.72rem; font-weight:600;
   letter-spacing:0.22em; text-transform:uppercase;
@@ -491,13 +491,7 @@ nav > .logo-wrap, nav > ul { flex-shrink:0; }
    • Mobile   < 768px
    ══════════════════════════════════════ */
 
-/* LARGE SCREENS > 1400px — keep content centered, full-bleed bg */
-@media(min-width:1400px) {
-  nav  { padding-left:calc((100vw - 1320px)/2); padding-right:calc((100vw - 1320px)/2); }
-  .hero, section { padding-left:calc((100vw - 1320px)/2 + 0px); padding-right:calc((100vw - 1320px)/2 + 0px); }
-  footer { padding-left:calc((100vw - 1320px)/2); padding-right:calc((100vw - 1320px)/2); }
-  .mission-strip { padding-left:calc((100vw - 1320px)/2); padding-right:calc((100vw - 1320px)/2); }
-}
+
 
 /* TABLET 768–1024px */
 @media(max-width:1024px) and (min-width:768px) {
