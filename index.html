@@ -475,23 +475,7 @@ footer {
 .hero-image-col { animation:fadeUp .7s .2s ease both; }
 
 /* ── RESPONSIVE ── */
-@media(max-width:900px) {
-  nav { padding:14px 22px; }
-  .nav-links { display:none; }
-  section { padding:64px 24px; }
-  .hero { grid-template-columns:1fr; padding:110px 24px 72px; }
-  .hero-image-col { display:none; }
-  .mission-strip { padding:24px 24px; }
-  .about { grid-template-columns:1fr; }
-  .about-img-stack { display:none; }
-  .bag-grid, .story-inner, .donate-inner, .contact-inner { grid-template-columns:1fr; }
-  .team-grid { grid-template-columns:repeat(2,1fr); }
-  .prizes-grid { grid-template-columns:1fr; }
-  footer { padding:44px 24px 24px; }
-  .footer-top { grid-template-columns:1fr; gap:28px; }
-  .footer-bottom { flex-direction:column; gap:14px; text-align:center; }
-  .form-row { grid-template-columns:1fr; }
-}
+
 
 /* ── LARGE SCREEN MAX-WIDTH ── */
 nav { max-width:100%; }
@@ -499,13 +483,102 @@ nav > .logo-wrap, nav > ul { flex-shrink:0; }
 .hero, section, footer {
   box-sizing:border-box;
 }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — 3 BREAKPOINTS
+   • Desktop  > 1024px  (default styles)
+   • Tablet   768–1024px
+   • Mobile   < 768px
+   ══════════════════════════════════════ */
+
+/* LARGE SCREENS > 1400px — keep content centered, full-bleed bg */
 @media(min-width:1400px) {
-  .hero { padding-left:calc((100vw - 1300px)/2); padding-right:calc((100vw - 1300px)/2); }
-  section { padding-left:calc((100vw - 1300px)/2); padding-right:calc((100vw - 1300px)/2); }
-  nav { padding-left:calc((100vw - 1300px)/2); padding-right:calc((100vw - 1300px)/2); }
-  footer { padding-left:calc((100vw - 1300px)/2); padding-right:calc((100vw - 1300px)/2); }
-  .mission-strip { padding-left:calc((100vw - 1300px)/2); padding-right:calc((100vw - 1300px)/2); }
+  nav  { padding-left:calc((100vw - 1320px)/2); padding-right:calc((100vw - 1320px)/2); }
+  .hero, section { padding-left:calc((100vw - 1320px)/2 + 0px); padding-right:calc((100vw - 1320px)/2 + 0px); }
+  footer { padding-left:calc((100vw - 1320px)/2); padding-right:calc((100vw - 1320px)/2); }
+  .mission-strip { padding-left:calc((100vw - 1320px)/2); padding-right:calc((100vw - 1320px)/2); }
 }
+
+/* TABLET 768–1024px */
+@media(max-width:1024px) and (min-width:768px) {
+  nav { padding:12px 28px; }
+  .hero { padding:110px 40px 72px; gap:40px; }
+  .hero h1 { font-size:2.8rem; }
+  .hero-img-wrap { width:320px; }
+  section { padding:72px 40px; }
+  .about { gap:40px; }
+  .about-img-inset { display:none; }
+  .team-grid { grid-template-columns:repeat(2,1fr); gap:28px; }
+  .bag-grid { gap:32px; }
+  .story-inner { gap:40px; }
+  .donate-inner { gap:40px; }
+  .contact-inner { gap:40px; }
+  footer { padding:44px 40px 28px; }
+  .footer-top { gap:32px; }
+}
+
+/* MOBILE < 768px */
+@media(max-width:767px) {
+  /* NAV */
+  nav { padding:12px 20px; height:60px; }
+  .nav-links { display:none; }
+  nav .logo-wrap img { height:40px; }
+
+  /* HERO */
+  .hero { grid-template-columns:1fr; padding:90px 22px 56px; min-height:auto; }
+  .hero-image-col { display:none; }
+  .hero h1 { font-size:2.2rem; }
+  .hero-lead { font-size:0.95rem; max-width:100%; }
+  .hero-eyebrow { font-size:0.65rem; }
+  .hero-buttons { flex-direction:column; gap:10px; }
+  .btn-primary, .btn-outline { text-align:center; padding:14px 24px; width:100%; }
+
+  /* MISSION */
+  .mission-strip { padding:20px 22px; }
+  .mission-strip p { font-size:0.9rem; }
+
+  /* ABOUT */
+  section { padding:56px 22px; }
+  .about { grid-template-columns:1fr; }
+  .about-img-stack { display:none; }
+
+  /* BAG */
+  .bag-grid { grid-template-columns:1fr; }
+  .bag-img { display:none; }
+
+  /* STORY */
+  .story-inner { grid-template-columns:1fr; gap:36px; }
+  .founder-card { padding:28px 22px; }
+  .founder-photo { width:90px; height:90px; }
+
+  /* TEAM */
+  .team-grid { grid-template-columns:repeat(2,1fr); gap:24px; }
+  .team-photo { width:100px; height:100px; }
+  .team-card h4 { font-size:0.95rem; }
+  .team-card p { font-size:0.8rem; }
+
+  /* DONATE */
+  .donate-inner { grid-template-columns:1fr; gap:32px; }
+  .donate-amounts { grid-template-columns:repeat(2,1fr); }
+
+  /* RAFFLE */
+  .prizes-grid { grid-template-columns:1fr; gap:14px; }
+  .raffle-cta { flex-direction:column; align-items:flex-start; gap:16px; }
+
+  /* CONTACT */
+  .contact-inner { grid-template-columns:1fr; gap:40px; }
+  .form-row { grid-template-columns:1fr; }
+
+  /* FOOTER */
+  footer { padding:40px 22px 24px; }
+  .footer-top { grid-template-columns:1fr; gap:28px; }
+  .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+  .footer-brand .f-logo { height:44px; }
+
+  /* SECTION TITLES */
+  h2.section-title { font-size:1.75rem; }
+}
+
 
 </style>
 </head>
