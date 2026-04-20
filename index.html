@@ -1071,24 +1071,68 @@ nav > .logo-wrap, nav > ul { flex-shrink:0; }
 
 <script>
 
-// Contact form → mailto with pre-filled body
+// Contact form → email / SMS / Messenger with pre-filled content
 function sendContactEmail(e) {
   e.preventDefault();
+
   const first   = document.getElementById('contactFirstName').value.trim();
   const last    = document.getElementById('contactLastName').value.trim();
   const email   = document.getElementById('contactEmail').value.trim();
   const type    = document.getElementById('contactType').value;
   const message = document.getElementById('contactMessage').value.trim();
+  const method  = document.getElementById('contactMethod').value;
 
-  const subject = encodeURIComponent('Message from ' + first + ' ' + last + ' via Zuzu\'s Zone Website');
-  const body = encodeURIComponent(
-    'Name: ' + first + ' ' + last + '\n' +
-    'Email: ' + email + '\n' +
-    'Reaching out as: ' + (type || 'Not specified') + '\n\n' +
-    'Message:\n' + message
-  );
+  const fullName = (first + ' ' + last).trim() || 'A visitor';
+  const rawBody  =
+    'Name: ' + fullName + '\n' +
+    (email ? 'Email: ' + email + '\n' : '') +
+    (type  ? 'Reaching out as: ' + type + '\n' : '') +
+    '\nMessage:\n' + message;
 
-  window.location.href = 'mailto:zuzuszone@gmail.com?subject=' + subject + '&body=' + body;
+  if (method === 'email') {
+    const subject = encodeURIComponent('Message from ' + fullName + ' via Zuzu\'s Zone Website');
+    const body    = encodeURIComponent(rawBody);
+    window.location.href = 'mailto:zuzuszone@gmail.com?subject=' + subject + '&body=' + body;
+
+  } else if (method === 'sms') {
+    // SMS - opens default text app with pre-filled message to Tiarah's number
+    const smsBody = encodeURIComponent(rawBody);
+    // Try sms: protocol (works on iOS and Android)
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const sep   = isIOS ? '&' : '?';
+    window.location.href = 'sms:+13039944144' + sep + 'body=' + smsBody;
+
+  } else if (method === 'messenger') {
+    // Facebook Messenger - can't pre-fill message text via URL
+    // Best we can do: copy message to clipboard then open Messenger page
+    const messengerText = rawBody;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(messengerText).then(() => {
+        showCopiedNotice();
+        setTimeout(() => {
+          window.open('https://m.me/61571497232621', '_blank');
+        }, 800);
+      }).catch(() => {
+        // Fallback if clipboard fails
+        window.open('https://m.me/61571497232621', '_blank');
+      });
+    } else {
+      window.open('https://m.me/61571497232621', '_blank');
+    }
+  }
+}
+
+function showCopiedNotice() {
+  let notice = document.getElementById('copiedNotice');
+  if (!notice) {
+    notice = document.createElement('div');
+    notice.id = 'copiedNotice';
+    notice.style.cssText = 'position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#2E1A10;color:#fff;padding:12px 24px;border-radius:24px;font-size:0.88rem;z-index:999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+    document.body.appendChild(notice);
+  }
+  notice.textContent = '✓ Message copied — paste it in Messenger!';
+  notice.style.display = 'block';
+  setTimeout(() => { notice.style.display = 'none'; }, 4000);
 }
 
 // Donate amount selector
